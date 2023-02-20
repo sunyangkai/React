@@ -1,0 +1,71 @@
+{
+    "compilerOptions": {
+        "downlevelIteration": true,
+        "sourceMap": true,
+        "allowSyntheticDefaultImports": true,
+        "module": "esNext",
+        "jsx": "react",
+        "target": "ES5",
+        "allowJs": true,
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "watch": true,
+        "noEmitOnError": true,
+        "noEmit": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "lib": [
+            "dom",
+            "es2015",
+            "ES2016",
+            "ES2019",
+        ],
+        "moduleResolution": "node",
+        "typeRoots": [
+            "node_modules/@types",
+            "@types"
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "myRouter": [
+                "./src/lib/router"
+            ],
+            "static_page": [
+                "./img"
+            ],
+            "@components": [
+                "./public/components"
+            ],
+            "uis": [
+                "./src/uis"
+            ],
+            "calendar": [
+                "./public/components/calendar/calendar"
+            ], 
+            "scrollList": [
+                "./@types/scrollList"
+            ],
+            "tip":[
+                "./node_modules/@yunke/react-components/tip/src/tip"
+            ],
+            "static_page/*":[
+                "./img/*"
+            ],
+            "src/*":[
+                "./src/*"
+            ],
+            "@components/*":[
+                "./public/components/*"
+            ],
+            "request":[
+                "./public/js/request.ts"
+            ],
+            "@assets/*": [ "./assets/*" ],
+        }
+    },
+    "include": [
+        "./src/**/*",
+        "./public/**/*",
+        "./page/**/*"
+    ]
+}

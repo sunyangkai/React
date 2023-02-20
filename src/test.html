@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<!--外链js会阻塞js脚本执行-->
+<!--外链css会阻塞dom的渲染，但不阻塞dom的构建-->
+
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>代码基地</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+</head>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        console.log(document.getElementById("fact"));
+    });
+</script>
+<script  onload="console.log('jq')" src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
+<script>console.log($)</script>
+<link rel="stylesheet" onload="console.log('link')" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<!-- <script>
+    console.log('sss')
+    console.log(document.getElementById("fact"));
+</script> -->
+<style>
+    .fact_css {
+        width: 20px;
+        height: 20px;
+    }
+</style>
+
+<body>
+    <div id="wrap">
+        <div id="fact" class="fact_css">fact</div>
+        <button type="button" class="btn btn-primary">主要按钮</button>
+    </div>
+    <!-- <script>
+    console.log(document.getElementById("fact"));
+</script> -->
+</body>
+
+</html>
