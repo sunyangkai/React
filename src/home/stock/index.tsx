@@ -7,7 +7,7 @@ import { getColums } from './consts/table';
 
 import { useHistory } from "react-router-dom";
 import { encodeQuery } from '../../util/param'
-import { Show } from 'src/common/show'
+import { Show } from 'src/public/components/show';
 
 
 const Kline = () => {

@@ -62,8 +62,9 @@ const config = {
     extensions: ['.ts', '.tsx', '.js', '.jsx'], // 引入模块时不带扩展名
     alias: {
       // 路径别名
-      home: resolve('src/home'),
       src: resolve('src'),
+      public: resolve('src/public'),
+      home: resolve('src/home'),
       page2: resolve('page-2'),
 
     },
@@ -307,3 +308,7 @@ module.exports = (env, argv) => {
   return config;
   // speedMeasurePlugin.wrap(config)
 }
+
+
+// 如果你需要进行代码分割，或者你有很多的静态资源，再或者你做的东西深度依赖 CommonJS，毫无疑问 Webpack 是你的最佳选择。
+// 如果你的代码基于 ES2015 模块编写，并且你做的东西是准备给他人使用的，你或许可以考虑使用 Rollup

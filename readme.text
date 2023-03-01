@@ -1,1 +1,16 @@
-it's a start
+package.lock.json:
+~ 会匹配最近的小版本依赖包，比如 ~1.2.3 会匹配所有 1.2.x 版本，但是不包括 1.3.0
+^ 会匹配最新的大版本依赖包，比如 ^1.2.3 会匹配所有 1.x.x 的包，包括 1.3.0，但是不包括 2.0.0
+* 安装最新版本的依赖包，比如 *1.2.3 会匹配 x.x.x，
+议使用 ~ 来标记版本号，这样可以保证项目不会出现大的问题，也能保证包中的小bug可以得到修复。
+
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+当我们在一个项目中npm install时候，会自动生成一个package-lock.json文件，和package.json在同一级目录下。package-lock.json记录了项目的一些信息和所依赖的模块。这样在每次安装都会出现相同的结果. 不管你在什么机器上面或什么时候安装
+当我们下次再npm install时候，npm 发现如果项目中有 package-lock.json 文件，会根据 package-lock.json 里的内容来处理和安装依赖而不再根据 package.json
+不动 package.json, package-lock.json 都不会重新生成。
+
+package-lock.json 可能被意外更改的原因:
+1.package.json 文件修改了
+2.挪动了包的位置: 将部分包的位置从 dependencies 移动到 devDependencies 这种操作，虽然包未变，但是也会影响 package-lock.json，会将部分包的 dev 字段设置为 true
+3.registry 的影响: 经过实际使用发现，如果我们 node_modules 文件夹下的包中下载时，就算版本一样，安装源 registry 不同，执行 npm i 时也会修改 package-lock.json
+

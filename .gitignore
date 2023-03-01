@@ -6,6 +6,7 @@ npm-debug.log*
 .happypack
 yarn-error.log
 package-lock.json
+.turbo
 
 
 # \#               表示此为注释,将被Git忽略

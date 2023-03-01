@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import $ from 'jquery';
-
 import { State } from '../redux';
 import { SET_LIST, SET_TITLE } from './reducer';
 import { JAVASCRIPT_INCREMENT } from '../javascript/reducer';
@@ -21,6 +20,9 @@ import {
   UseMemo,
   UseContext
 } from './components';
+
+import { ReactEvent } from './source/event'
+import { HocRenderHook } from './source/hoc-render-hook'
 
 
 
@@ -46,7 +48,7 @@ UI和数据分离更加彻底
 const Base = (props) => {
   return (
     <div className="hooks">
-      <UseContext />
+      <HocRenderHook />
     </div>
   );
 }

@@ -1,0 +1,65 @@
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>代码基地</title>
+</head>
+
+
+<style>
+   .small {
+    width: 300px;
+    height: 300px;
+    border: 1px solid blue;
+   }
+   .big {
+    width: 500px;
+    height: 500px;
+    border: 1px solid red;
+   }
+   .middle {
+    width: 400px;
+    height: 400px;
+    border: 1px solid green;
+   }
+</style>
+
+<body>
+    <div id="big" class="big">
+        <div id="middle" class="middle">
+            <div id="small" class="small"></div>
+        </div>
+    </div>
+    <a href="https://baidu.com" id="aref" />
+    <script>
+        // 事件冒泡（dubbed bubbling）：当一个元素接收到事件的时候，会把他接收到的事件传给自己的父级，一直到 window (注意这里传递的仅仅是事件，例如click、focus等等这些事件， 并不传递所绑定的事件函数。）
+        // 事件捕获（event capturing）： 当鼠标点击或者触发dom事件时（被触发dom事件的这个元素被叫作事件源），浏览器会从根节点 =>事件源（由外到内）进行事件传播
+        // 事件委托： 就是利用事件冒泡，把子元素的事件都绑定到父元素上，通过e.target确定事件来源。如果子元素阻止了事件冒泡，那么委托就无法实现、
+        // 优点：替代循环绑定事件的操作，减少内存消耗，提高性能 简化了dom节点更新时，相应事件的更新
+        // 缺点：1.事件委托基于冒泡，对于不冒泡的事件不支持。
+        // 2.层级过多，冒泡过程中，可能会被某层阻止掉。
+        // 3.理论上委托会导致浏览器频繁调用处理函数，虽然很可能不需要处理。所以建议就近委托
+        let big = document.getElementById("big");
+        let small = document.getElementById("small");
+        let middle = document.getElementById("middle");
+        small.addEventListener('click', (e) => {
+        //   e.stopPropagation();
+          console.log('small')
+        }, false)
+        middle.addEventListener('click', () => {
+          console.log('middle')
+        }, false);
+        big.addEventListener('click', () => {
+          console.log('big')
+        }, false);
+
+        let aref = document.getElementById("aref");
+        aref.addEventListener('click', (e) => {
+            e.preventDefault(); // 阻止默认事件行为，这里a点击跳转链接
+            // return false;  第二种阻止默认事件行为
+            console.log('a link')
+        })
+      
+      </script>
+</body>
+
+</html>
